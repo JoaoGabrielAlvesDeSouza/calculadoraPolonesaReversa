@@ -47,14 +47,13 @@ def sintaxAnaliser (expression) :
         typeOfError = "Parênteses faltando"
     
     if invalidExpression:
-        print ("Expressão inválida." + typeOfError)
+        print ("Expressão inválida." + typeOfError + " \n operadores válidos : +, -, *, /. \n Operandos válidos : núemro de 0 à 9")
         sys.exit ()
 
 def toPostFix (expression) :
     stack = []
     postFixExpression = ""
     numbers = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9" , "0"]
-    operators = ["+" , "-" , "*" , "/" , "("]
 
     for i in range (len (expression)) : 
         
@@ -166,12 +165,12 @@ def calc (expression) :
 
 sintaxAnaliser (expression)
 
-print ("\n Pilha da transofrmação infixa para posfixa \n")
+print ("\n --- Pilha da transofrmação infixa para posfixa --- \n")
 
 postFixExpression = toPostFix (expression)
 
-print ("\n Cálculo da expressão pósfixa \n ")
+print ("\n --- Cálculo da expressão pósfixa --- \n ")
 
 result = calc (postFixExpression)
 
-print ("\n Resultado Final \n " + expression + "(" + postFixExpression + ")" + "=" + str (result))
+print ("\n --- Resultado Final --- \n " + "Expressão normal : " + expression + "\n Expressão pósfixa : " + postFixExpression + "\n Resultado = " + str (result))
